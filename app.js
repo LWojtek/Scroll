@@ -3,11 +3,50 @@
 // slice extracts a section of a string without modifying original string
 //offsetTop - A Number, representing the top position of the element, in pixels
 
-// ********** set date ************
+// ********** set date ************\
+
+const date = document.querySelector('#date');
+
+date.innerHTML = new Date().getFullYear();
 
 // ********** close links ************
 
+const linksContainer = document.querySelector('.links-container')
+const links = document.querySelector('.links');
+const navToggle = document.querySelector('.nav-toggle');
+
+
+navToggle.addEventListener('click', () => {
+    // linksContainer.classList.toggle('show-links'); // not best approach when adding or removing links. try by deleting one link
+
+
+    navToggle.classList.toggle('nav-toggle-rotate');
+
+    const containerHeight = linksContainer.getBoundingClientRect().height;
+    const linksHeight = links.getBoundingClientRect().height;
+    if (containerHeight === 0) {
+        linksContainer.style.height = `${linksHeight}px`
+    } else {
+        linksContainer.style.height = 0;
+    }
+
+});
+
+const navbar = document.getElementsById = ('nav');
+
 // ********** fixed navbar ************
+
+window.addEventListener('scroll', () => {
+    const scrollHeight = window.pageYOffset;
+    const navHeight = navbar.getBoundingClientRect().height;
+
+    if (scrollHeight > navHeight) {
+        navbar.classList.add('fixed-nav');
+    } else {
+        navbar.classList.remove('fixed-nav');
+    }
+})
+
 
 // ********** smooth scroll ************
 // select links
