@@ -33,19 +33,32 @@ navToggle.addEventListener('click', () => {
 });
 
 const navbar = document.getElementsById = ('nav');
+const topLink = document.querySelector('.top-link');
 
 // ********** fixed navbar ************
 
 window.addEventListener('scroll', () => {
-    const scrollHeight = window.pageYOffset;
-    const navHeight = navbar.getBoundingClientRect().height;
+    // const scrollHeight = window.pageYOffset;
+    // const navHeight = navbar.getBoundingClientRect().height;
 
-    if (scrollHeight > navHeight) {
-        navbar.classList.add('fixed-nav');
+    // if (scrollHeight > navHeight) {
+    //     navbar.classList.add('fixed-nav');
+    // } else {
+    //     navbar.classList.remove('fixed-nav');
+    // }
+
+    if (window.pageYOffset > 830) {
+        topLink.classList.add('show-link');
     } else {
-        navbar.classList.remove('fixed-nav');
+        topLink.classList.remove('show-link')
     }
+    console.log(window.pageYOffset);
 })
+
+
+
+
+
 
 
 // ********** smooth scroll ************
